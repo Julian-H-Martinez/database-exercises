@@ -1,17 +1,14 @@
 USE codeup_test_db;
-
--- INSERT INTO quotes(author_first_name,author_last_name,content)
---    artist VARCHAR(200) NOT NULL,
---    name VARCHAR(200) NOT NULL,
---    release_date INT UNSIGNED,
---    sales FLOAT UNSIGNED,
---    genre VARCHAR (100),
+-- TRUNCATE albums;
 -- INSERT INTO albums(artist, name, release_date, sales, genre)
 -- VALUES('Michael Jackson', 'Thriller', 1982, 49.2, 'Pop, post-disco, funk, rock');
 -- INSERT INTO albums(artist, name, release_date, sales, genre)
 -- VALUES('AC/DC', 'Back in Black', 1980, 29.5, 'Hard rock');
+
 INSERT INTO albums(artist, name, release_date, sales, genre)
-VALUES('Whitney Houston', 'The Bodyguard', 1992, 32.4, 'R&B, soul, pop, soundtrack'),
+VALUES('Michael Jackson', 'Thriller', 1982, 49.2, 'Pop, post-disco, funk, rock'),
+      ('AC/DC', 'Back in Black', 1980, 29.5, 'Hard rock'),
+       ('Whitney Houston', 'The Bodyguard', 1992, 32.4, 'R&B, soul, pop, soundtrack'),
        ('Meat Loaf', 'Bat Out of Hell', 1977, 21.7, 'Hard rock, glam rock, progressive rock'),
        ('Eagles', 'Their Greatest Hits (1971–1975)', 1976, 41.2, 'Country rock, soft rock, folk rock'),
        ('Pink Floyd', 'The Dark Side of the Moon', 1973, 24.4, 'Progressive rock'),
@@ -43,4 +40,4 @@ VALUES('Whitney Houston', 'The Bodyguard', 1992, 32.4, 'R&B, soul, pop, soundtra
        ('Guns N'' Roses', 'Appetite for Destruction', 1987, 21.9, 'Hard rock'),
        ('Elton John', 'Goodbye Yellow Brick Road', 1973, 8.5, 'rock, pop rock, glam rock');
 
-SELECT * FROM albums;
+-- SELECT * FROM albums;
