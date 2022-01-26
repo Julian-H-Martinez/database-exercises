@@ -12,9 +12,9 @@ USE codeup_test_db;
     -- Move all the albums before 1980 back to the 1800s.
 -- SELECT name AS 'Albums Released Before 1980' FROM albums WHERE release_date < 1980;
 -- UPDATE albums
--- SET release_date = 1800
+-- SET release_date = release_date - 100
 -- WHERE release_date BETWEEN 1980 AND 1989;
--- SELECT name AS 'Moved to 1800''s' FROM albums WHERE release_date < 1900;
+-- SELECT release_date, name AS 'Moved to 1800''s' FROM albums WHERE release_date < 1900;
     -- All albums by Michael Jackson
     -- Change 'Michael Jackson' to 'Peter Jackson'
 -- SELECT artist AS 'Albums by Michael Jackson' FROM albums WHERE artist = 'Michael Jackson';
