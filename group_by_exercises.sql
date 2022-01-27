@@ -33,6 +33,11 @@ GROUP BY first_name, last_name;
     # Chleq
     # Lindqvist
     # Qiwen
+SELECT last_name
+FROM employees
+WHERE last_name LIKE ('%q%')
+  AND last_name NOT LIKE ('%qu%')
+GROUP BY last_name;
 # Add a COUNT() to your results and use ORDER BY to make it easier to find employees whose unusual name is shared with others.
     # 189 Chleq
     # 190 Lindqvist
