@@ -18,9 +18,16 @@ SELECT DISTINCT title FROM titles;
     # Erde
     # Erie
     # Etalle
+SELECT last_name
+FROM employees
+WHERE last_name LIKE ('E%E')
+GROUP BY last_name;
 # Update your previous query to now find unique combinations of first and last name where the last name starts and ends with 'E'.
 # You should get 846 rows.
-#
+SELECT first_name, last_name
+FROM employees
+WHERE last_name LIKE ('E%E')
+GROUP BY first_name, last_name;
 # Find the unique last names with a 'q' but not 'qu'.
 # Your results should be:
     # Chleq
