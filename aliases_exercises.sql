@@ -11,11 +11,10 @@ SELECT CONCAT(last_name, ' ',first_name) full_name, birth_date DOB
 FROM employees
 LIMIT 10;
 
-# Update the query to format full name to include the employee number so it is formatted as 'employee number - last name, first name'.
-#
+# Update the query to format full name to include
+# the employee number so it is formatted as 'employee number - last name, first name'.
 # The final result should look like this:
-#
-#
+
 # +-----------------------------+------------+
 # | full_name                   | DOB        |
 # +-----------------------------+------------+
@@ -31,3 +30,6 @@ LIMIT 10;
 # | 10010 - Piveteau, Duangkaew | 1963-06-01 |
 # +-----------------------------+------------+
 # 10 rows in set (0.00 sec)
+SELECT CONCAT(emp_no, ' - ', last_name, ', ',first_name) full_name, birth_date DOB
+FROM employees
+LIMIT 10;
