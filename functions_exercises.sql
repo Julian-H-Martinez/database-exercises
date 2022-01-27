@@ -31,10 +31,11 @@ ORDER BY birth_date, hire_date DESC;
 
 # For your query of employees born on Christmas and hired in the 90s, use datediff() to
 # find how many days they have been working at the company (Hint: You might also need to use now() or curdate()).
-SELECT *
+SELECT *, datediff(curdate(), hire_date)
 FROM employees
-WHERE first_name IN ('Irena', 'Vidya', 'Maya')
-ORDER BY last_name DESC, first_name DESC;
+WHERE year(hire_date) BETWEEN 1990 AND 1999
+    AND month(birth_date) = 12
+    AND day(birth_date) = 25;
 
 
 
