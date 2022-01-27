@@ -31,3 +31,9 @@ VALUES ('bob', 'bob@example.com', null),
        ('willie', 'willie@example.com', 2),
        ('hank', 'hank@example.com', 2),
        ('bruce', 'bruce@example.com', 2);
+
+# Use JOIN, LEFT JOIN, and RIGHT JOIN to combine results from the users and roles tables as we did in the lesson.
+# Before you run each query, guess the expected number of results.
+SELECT users.name as user_name, roles.name as role_name
+FROM users
+JOIN roles ON users.role_id = roles.id;
