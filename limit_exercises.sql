@@ -6,20 +6,22 @@ ORDER BY last_name DESC
 LIMIT 10;
 
 # Create a query to get the top 5 salaries and display just the employees number from the salaries table.
-# USE salaries;
-SELECT emp_no
-FROM employees.salaries
-ORDER BY salary DESC
-# Update the previous query to find the tenth page of results.
-LIMIT 5 OFFSET 50;
-
 # 43624
 # 43624
 # 254466
 # 47978
 # 253939
+SELECT emp_no
+FROM employees.salaries
+ORDER BY salary DESC
+LIMIT 5;
 
+# Update the previous query to find the tenth page of results.
 # 254466
 # 492164
 # 66793
 # 492164
+SELECT emp_no
+FROM employees.salaries
+ORDER BY salary DESC
+LIMIT 5 OFFSET 45;
