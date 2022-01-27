@@ -13,29 +13,20 @@ FROM employees
 WHERE MONTH(birth_date) = 12
 AND DAY(birth_date) = 25;
 # Find all employees hired in the 90s and born on Christmas — 362 rows.
-# Need to inquire on why my code doesn't work but literature example does
-# My code works there's just no one born in the 1990s born on Christmas
-# My employees only go to 1969 1970 and above is not there
-# SELECT *
-# FROM employees
-# WHERE year(birth_date) BETWEEN 1990 AND 1999
-#     AND month(birth_date) = 12
-#     AND day(birth_date) = 25;
-#
-# SELECT *
-# FROM employees
-# WHERE year(birth_date) BETWEEN 1950 AND 1959
-#   AND month(birth_date) = 7
-#   AND day(birth_date) = 4;
+SELECT *
+FROM employees
+WHERE year(hire_date) BETWEEN 1990 AND 1999
+    AND month(birth_date) = 12
+    AND day(birth_date) = 25;
 
 # Change the query for employees hired in the 90s and born on Christmas
 # such that the first result is the oldest employee who was hired last.
 # It should be Khun Bernini.
 SELECT *
 FROM employees
-WHERE year(birth_date) = 1998
-# AND month(birth_date) = 7
-# AND day(birth_date) = 4
+WHERE year(hire_date) BETWEEN 1990 AND 1999
+  AND month(birth_date) = 12
+  AND day(birth_date) = 25
 ORDER BY birth_date, hire_date DESC;
 
 # For your query of employees born on Christmas and hired in the 90s, use datediff() to
