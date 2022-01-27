@@ -21,7 +21,8 @@ SELECT DISTINCT title FROM titles;
 SELECT last_name
 FROM employees
 WHERE last_name LIKE ('E%E')
-GROUP BY last_name;
+GROUP BY last_name
+ORDER BY last_name;
 # Update your previous query to now find unique combinations of first and last name where the last name starts and ends with 'E'.
 # You should get 846 rows.
 SELECT first_name, last_name
@@ -46,7 +47,8 @@ SELECT CONCAT(COUNT(last_name), ' ', last_name)
 FROM employees
 WHERE last_name LIKE ('%q%')
   AND last_name NOT LIKE ('%qu%')
-GROUP BY last_name;
+GROUP BY last_name
+ORDER BY last_name;
 # Update your query for 'Irena', 'Vidya', or 'Maya'.
 # Use count(*) and GROUP BY to find the number of employees for each gender with those names.
 # Your results should be:
