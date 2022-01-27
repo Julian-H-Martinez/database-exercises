@@ -52,3 +52,7 @@ GROUP BY last_name;
 # Your results should be:
     # 441 M
     # 268 F
+SELECT CONCAT(COUNT(gender), ' ', gender)
+FROM employees
+WHERE first_name IN('Irena', 'Vidya', 'Maya')
+GROUP BY gender;
