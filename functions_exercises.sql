@@ -8,7 +8,10 @@ CONCAT(first_name , ' ' , last_name)
 FROM employees
 WHERE last_name LIKE ('E%E');
 # Find all employees born on Christmas — 842 rows.
-
+SELECT first_name, birth_date
+FROM employees
+WHERE MONTH(birth_date) = 12
+AND DAY(birth_date) = 25;
 # Find all employees hired in the 90s and born on Christmas — 362 rows.
 
 # Change the query for employees hired in the 90s and born on Christmas
