@@ -34,6 +34,18 @@ VALUES ('bob', 'bob@example.com', null),
 
 # Use JOIN, LEFT JOIN, and RIGHT JOIN to combine results from the users and roles tables as we did in the lesson.
 # Before you run each query, guess the expected number of results.
+# 4 Results should display
+# only 3 results displayed
 SELECT users.name as user_name, roles.name as role_name
 FROM users
 JOIN roles ON users.role_id = roles.id;
+# should return 4 results because it's pulling from the "Left" table which is users table in this example
+# it does
+SELECT users.name as user_name, roles.name as role_name
+FROM users
+LEFT JOIN roles ON users.role_id = roles.id;
+# Should return 6 results
+# RIGHT JOIN is rarely used cause you can switch table sides to achieve the same outcome
+SELECT users.name AS user_name, roles.name AS role_name
+FROM users
+RIGHT JOIN roles ON users.role_id = roles.id;
