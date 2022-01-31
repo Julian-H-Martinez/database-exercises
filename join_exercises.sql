@@ -1,14 +1,4 @@
 USE employees;
-
-# SELECT CONCAT(e.first_name, ' ', e.last_name) AS full_name, d.dept_name
-# FROM employees as e
-#          JOIN dept_emp as de
-#               ON de.emp_no = e.emp_no
-#          JOIN departments as d
-#               ON d.dept_no = de.dept_no
-# WHERE de.to_date = '9999-01-01' AND e.emp_no = 10001;
-
-
 # write a query that shows each department along with the name of the current manager for that department.
 # +--------------------+--------------------+
 # | Department Name    | Department Manager |
@@ -83,3 +73,31 @@ WHERE de.to_date = '9999-01-01'
     AND t2.to_date = '9999-01-01'
 GROUP BY t2.title
 ORDER BY Total DESC;
+
+# Find the current salary of all current managers.
+# +--------------------+--------------------+--------+
+# | Department Name    | Department Manager | Salary |
+# +--------------------+--------------------+--------+
+# | Customer Service   | Yuchang Weedman    |  58745 |
+# | Development        | Leon DasSarma      |  74510 |
+# | Finance            | Isamu Legleitner   |  83457 |
+# | Human Resources    | Karsten Sigstam    |  65400 |
+# | Marketing          | Vishwani Minakawa  | 106491 |
+# | Production         | Oscar Ghazalie     |  56654 |
+# | Quality Management | Dung Pesch         |  72876 |
+# | Research           | Hilary Kambil      |  79393 |
+# | Sales              | Hauke Zhang        | 101987 |
+# +--------------------+--------------------+--------+
+SELECT dept.dept_name AS 'Department Name',
+       CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager',
+       sal.salary AS Salary
+FROM employees AS e
+    JOIN dept_manager AS dm
+        ON e.emp_no = dm.emp_no
+    JOIN departments AS dept
+        ON dept.dept_no = dm.dept_no
+    JOIN salaries AS sal
+        ON e.emp_no = sal.emp_no
+WHERE sal.to_date = '9999-01-01'
+    AND dm.to_date = '9999-01-01';
+
