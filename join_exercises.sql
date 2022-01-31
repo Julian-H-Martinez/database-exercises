@@ -101,3 +101,29 @@ FROM employees AS e
 WHERE sal.to_date = '9999-01-01'
     AND dm.to_date = '9999-01-01';
 
+# SELECT CONCAT(emp.first_name, ' ', emp.last_name) AS Employee,
+#        dept.dept_name AS Department
+#        CONCAT(dm.first_name, ' ', dm.last_name) AS Manager
+# From employees AS emp
+#     JOIN dept_emp AS de
+#         ON emp.emp_no = de.emp_no
+#     JOIN dept_manager AS dm
+#         ON emp.emp_no = dm.emp_no
+#     JOIN departments AS dept
+#         ON dept.dept_no = dm.dept_no
+#     JOIN titles AS t
+#         ON emp.emp_no = t.emp_no
+# WHERE de.to_date = '9999-01-01'
+#     AND (t.title = 'Manager' AND t.to_date = '9999-01-01')
+
+
+# Bonus Find the names of all current employees, their department name, and their current manager's name .
+# +----------------------+------------------+-----------------+
+# | Employee             | Department       | Manager         |
+# +----------------------+------------------+-----------------+
+# | Huan Lortz           | Customer Service | Yuchang Weedman |
+# | Basil Tramer         | Customer Service | Yuchang Weedman |
+# | Breannda Billingsley | Customer Service | Yuchang Weedman |
+# | Jungsoon Syrzycki    | Customer Service | Yuchang Weedman |
+# | Yuichiro Swick       | Customer Service | Yuchang Weedman |
+# ... 240,124 Rows in total
