@@ -34,6 +34,16 @@ FROM employees AS e
 WHERE dm.to_date = '9999-01-01'
 ORDER BY `Department Name`;
 
+# Find the name of all departments currently managed by women.
+#
+# +------------------+--------------------+
+# | Department Name  | Department Manager |
+# +------------------+--------------------+
+# | Development      | Leon DasSarma      |
+# | Finance          | Isamu Legleitner   |
+# | Human Resources  | Karsten Sigstam    |
+# | Research         | Hilary Kambil      |
+# +------------------+--------------------+
 SELECT dept.dept_name AS 'Department Name',
        CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager'
 FROM employees AS e
@@ -46,13 +56,30 @@ FROM employees AS e
 WHERE emp.gender = 'f'
     AND dm.to_date = '9999-01-01'
 ORDER BY 'Department Name';
-# Find the name of all departments currently managed by women.
-#
-# +------------------+--------------------+
-# | Department Name  | Department Manager |
-# +------------------+--------------------+
-# | Development      | Leon DasSarma      |
-# | Finance          | Isamu Legleitner   |
-# | Human Resources  | Karsten Sigstam    |
-# | Research         | Hilary Kambil      |
-# +------------------+--------------------+
+
+# Find the current titles of employees currently working in the Customer Service department.
+# +--------------------+-------+
+# | title              | Total |
+# +--------------------+-------+
+# | Senior Staff       | 11268 |
+# | Staff              |  3574 |
+# | Senior Engineer    |  1790 |
+# | Engineer           |   627 |
+# | Technique Leader   |   241 |
+# | Assistant Engineer |    68 |
+# | Manager            |     1 |
+# +--------------------+-------+
+SELECT title AS t2,
+       COUNT(t2.title) AS Total
+FROM employees as e
+    JOIN titles AS t2
+        ON e.emp_no = t2.emp_no
+    JOIN dept_emp AS de
+        ON e.emp_no = de.emp_no
+    JOIN departments AS d
+     ON de.dept_no = d.dept_no
+WHERE de.to_date = '9999-01-01'
+    AND d.dept_name = 'Customer Service'
+    AND t2.to_date = '9999-01-01'
+GROUP BY t2.title
+ORDER BY Total DESC;
