@@ -49,3 +49,11 @@ LEFT JOIN roles ON users.role_id = roles.id;
 SELECT users.name AS user_name, roles.name AS role_name
 FROM users
 RIGHT JOIN roles ON users.role_id = roles.id;
+
+# Although not explicitly covered in the lesson, aggregate functions like count can be used with join queries.
+# Use COUNT and the appropriate join type to get a list of roles along with the number of users that have a given role.
+# Hint: You will also need to use GROUP BY in the query.
+SELECT roles.name AS role_name, COUNT(role_id) 'number of users'
+FROM users
+RIGHT JOIN roles on users.role_id = roles.id
+GROUP BY roles.name;
