@@ -1,11 +1,17 @@
 USE employees;
 # Find all the employees with the same hire date as employee 101010 using a subquery.
+# WHAT WE WANT -> WHAT INFO ARE WE PULLING FROM TABLES -> first_name, last_name, hire_date
 SELECT first_name, last_name, hire_date
-FROM employees AS e
-WHERE emp_no IN (
-    SELECT *
+# WHAT TABLE ARE WE LOOKING TO GET THEM FROM -> employees
+FROM employees
+# FILTER RESULTS TO GET CERTAIN EMPLOYEES BY -> hire_date
+WHERE hire_date IN (
+# WHAT WE WANT -> hire_date
+    SELECT hire_date
+# WHAT TABLE ARE WE LOOKING TO GET THEM FROM -> employees
     FROM employees
-    WHERE e.hire_date =
+# FILTER RESULTS BY A CERTAIN EMPLOYEE -> emp_no
+    WHERE emp_no = 101010
     );
 # SELECT first_name, last_name, birth_date
 # FROM employees
