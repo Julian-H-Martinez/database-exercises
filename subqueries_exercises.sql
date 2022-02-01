@@ -28,6 +28,8 @@ WHERE emp_no IN(
     FROM employees
     WHERE first_name = 'Aamod'
     );
+# GROUPING UNIQUE TITLES
+# GROUP BY title;
 
 # Find all the current department managers that are female.
 # dept_manager
@@ -72,7 +74,7 @@ WHERE dept_no IN (
         WHERE gender = 'f'
         AND to_date > CURDATE()
         )
-    )
+    );
 
 # Find the first and last name of the employee with the highest salary.
 # employees
@@ -84,6 +86,7 @@ WHERE emp_no IN(
     FROM salaries
     WHERE salary = (SELECT MAX(salary)
         FROM salaries)
+    AND to_date > CURDATE()
     );
 # +------------+-----------+
 # | first_name | last_name |
