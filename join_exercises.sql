@@ -45,7 +45,7 @@ FROM employees AS e
         ON emp.emp_no = dm.emp_no
 WHERE emp.gender = 'f'
     AND dm.to_date = '9999-01-01'
-ORDER BY 'Department Name';
+ORDER BY dept.dept_name;
 
 # Find the current titles of employees currently working in the Customer Service department.
 # +--------------------+-------+
@@ -59,19 +59,15 @@ ORDER BY 'Department Name';
 # | Assistant Engineer |    68 |
 # | Manager            |     1 |
 # +--------------------+-------+
-SELECT title AS t2,
-       COUNT(t2.title) AS Total
-FROM employees as e
-    JOIN titles AS t2
-        ON e.emp_no = t2.emp_no
-    JOIN dept_emp AS de
-        ON e.emp_no = de.emp_no
-    JOIN departments AS d
-     ON de.dept_no = d.dept_no
-WHERE de.to_date = '9999-01-01'
+SELECT t.title AS title,
+       COUNT(t.emp_no) AS Total
+FROM titles as t
+    JOIN dept_emp AS de ON t.emp_no = de.emp_no
+    JOIN departments AS d ON de.dept_no = d.dept_no
+WHERE t.to_date = '9999-01-01'
     AND d.dept_name = 'Customer Service'
-    AND t2.to_date = '9999-01-01'
-GROUP BY t2.title
+    AND de.to_date = '9999-01-01'
+GROUP BY t.title
 ORDER BY Total DESC;
 
 # Find the current salary of all current managers.
@@ -92,14 +88,12 @@ SELECT dept.dept_name AS 'Department Name',
        CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager',
        sal.salary AS Salary
 FROM employees AS e
-    JOIN dept_manager AS dm
-        ON e.emp_no = dm.emp_no
-    JOIN departments AS dept
-        ON dept.dept_no = dm.dept_no
-    JOIN salaries AS sal
-        ON e.emp_no = sal.emp_no
-WHERE sal.to_date = '9999-01-01'
-    AND dm.to_date = '9999-01-01';
+    JOIN dept_manager AS dm ON e.emp_no = dm.emp_no
+    JOIN departments AS dept ON dept.dept_no = dm.dept_no
+    JOIN salaries AS sal ON e.emp_no = sal.emp_no
+WHERE sal.to_date > CURDATE()
+    AND dm.to_date > CURDATE()
+ORDER BY dept.dept_name;
 
 # SELECT CONCAT(emp.first_name, ' ', emp.last_name) AS Employee,
 #        dept.dept_name AS Department
